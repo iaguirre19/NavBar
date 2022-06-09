@@ -1,0 +1,201 @@
+/*Google font CDN Link*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&family=Roboto+Condensed:wght@400;700&display=swap');
+
+:root{
+    --blanco:#fff;
+    --backgroundprimario: #11101d;
+    --backgroundsecundario:#1d1b31;
+}
+/**Globales**/
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /*1 rem es igual a 10px*/
+    font-family:'Poppins', sans-serif;
+
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+body{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+} 
+a{
+    text-decoration: none;
+    color: var(--blanco);
+}
+
+/****************Sidebar*******************/
+/**Sidebar a la izquierda, se le da ancho y color de la barra**/
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 24rem;
+    background: var(--backgroundprimario);
+    padding: .6rem 1.4rem;
+}
+.sidebar .logo_content .logo{
+    color: var(--blanco);
+    display: flex;
+    height: 5rem;
+    width: 100%;
+    align-items: center;
+}
+.logo_content .logo i{
+    font-size: 3rem;
+    margin-right: .5rem;
+}
+.logo_content .logo .logo_name{
+    font-size: 2rem;
+    font-weight: 400;
+}
+.sidebar #btn{
+    position: absolute;
+    color: var(--blanco);
+    left: 90%;
+    top: .6rem;
+    font-size: 2.5rem;
+    height: 5rem;
+    width: 5rem;
+    text-align: center;
+    line-height: 5rem;
+    transform: translateX(-50%);
+}
+.sidebar ul{
+    margin-top: 2rem;
+}
+.sidebar ul li{
+    position: relative;
+    height: 5rem;
+    width: 100%;
+    margin: 0 .5rem;
+    list-style: none;
+    line-height: 5rem;
+}
+.sidebar ul li .tooltip{
+    position: absolute;
+    left: 12.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: .6rem;
+    height: 3.5rem;
+    width: 12.2rem;
+    background-color: var(--blanco);
+    line-height: 3.5rem;
+    text-align: center;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
+    transition: 0s;
+    opacity:0;
+    pointer-events: none;
+}
+.sidebar ul li:hover .tooltip{
+    transition: all 0.5s ease;
+    opacity: 1;
+    top: 50%;
+}
+.sidebar ul li span{
+    font-size: 1.4rem;
+}
+.sidebar ul li input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-radius:1.2rem;
+    outline: none;
+    border: none;
+    background: var(--backgroundsecundario);
+    padding-left: 5rem;
+    font-size: 1.8rem;
+    color: var(--blanco);
+}
+.sidebar ul li .bx-search{
+    position: absolute;
+    z-index: 99;
+    color: var(--blanco);
+    font-size: 2.2rem;
+}
+.sidebar ul li a{
+    display: flex;
+    align-items: center;
+    transition: all 0.4s ease;
+    border-radius: 1.2rem;
+}
+.sidebar ul li a:hover{
+    color: var(--backgroundprimario);
+    background-color: var(--blanco);
+}
+.sidebar ul li i{
+    height: 5rem;
+    min-width: 5rem;
+    border-radius:1.2rem;
+    line-height: 5rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.sidebar .profile_content{
+    position: absolute;
+    color: var(--blanco);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /*Esta parte es sobre la informacion del dev que lo coloca en la parte de abajo*/
+}
+.sidebar .profile_content .profile{
+    position: relative;
+    padding: 1rem .6rem;
+    height: 6rem;
+    background-color: var(--backgroundsecundario);
+}
+.profile_content .profile .profile_details{
+    display: flex;
+    align-items: center;
+}
+.profile .profile_details img{
+    /**Esta es la parte de la imagen de perfil**/
+    height: 4.5rem;
+    width: 4.5rem;
+    object-fit: cover;
+    border-radius: 1.2rem;
+}
+.profile .profile_details .name_job{
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.profile .profile_details .name{
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.profile .profile_details .job{
+    font-size: 1.2rem;
+}
+.profile #log_out{
+    position: absolute;
+    left: 88%;
+    bottom: .5rem;
+    transform: translateX(-50%);
+    min-width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    border-radius: 1.2rem;
+}
+.home_content{
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 240px);
+    left: 24rem;
+}
+.home_content .text{
+    font-size:2.5rem;
+    font-weight: 500;
+    color: var(--backgroundsecundario);
+    margin: 1.2rem;
+}
