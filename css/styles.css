@@ -36,16 +36,29 @@ a{
     top: 0;
     left: 0;
     height: 100%;
-    width: 24rem;
+    width: 7.8rem; /*Esto reduce el tamano del sidebar*/
     background: var(--backgroundprimario);
     padding: .6rem 1.4rem;
+    transition: all 0.6s ease; /*Efecto con el que se activa el sidbar*/
 }
+.sidebar.active{
+    width:100%;/*Cuando el boton se activa es el ancho del sidebar*/
+}
+
 .sidebar .logo_content .logo{
     color: var(--blanco);
     display: flex;
     height: 5rem;
     width: 100%;
     align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active .logo_content .logo{
+    opacity: 1;
+    pointer-events: none;
 }
 .logo_content .logo i{
     font-size: 3rem;
@@ -58,7 +71,7 @@ a{
 .sidebar #btn{
     position: absolute;
     color: var(--blanco);
-    left: 90%;
+    left: 50%;
     top: .6rem;
     font-size: 2.5rem;
     height: 5rem;
@@ -66,6 +79,9 @@ a{
     text-align: center;
     line-height: 5rem;
     transform: translateX(-50%);
+}
+.sidebar.active #btn{
+    left: 90%; /*Esto coloca el icono de hamburguesa a la derecha pegado al borde cuando se activa el boton */
 }
 .sidebar ul{
     margin-top: 2rem;
@@ -80,9 +96,9 @@ a{
 }
 .sidebar ul li .tooltip{
     position: absolute;
-    left: 12.2rem;
-    top: 50%;
-    transform: translateY(-50%);
+    left: 6.5rem;
+    top: 0;
+    transform: translateY(-50%, 50% );
     border-radius: .6rem;
     height: 3.5rem;
     width: 12.2rem;
@@ -93,6 +109,9 @@ a{
     transition: 0s;
     opacity:0;
     pointer-events: none;
+}
+.sidebar.active ul li .tooltip{
+    display: none;/*Cuando se activa el boton se oculta el submenu*/
 }
 .sidebar ul li:hover .tooltip{
     transition: all 0.5s ease;
@@ -121,12 +140,18 @@ a{
     z-index: 99;
     color: var(--blanco);
     font-size: 2.2rem;
+    transition: all 0.5 ease;
+}
+.sidebar ul li .bx-search:hover{
+    background-color:var(--blanco);
+    color: var(--backgroundsecundario);
 }
 .sidebar ul li a{
     display: flex;
     align-items: center;
     transition: all 0.4s ease;
     border-radius: 1.2rem;
+    white-space: nowrap;/*Elimina los espacios entre los iconos no bien acomodados*/
 }
 .sidebar ul li a:hover{
     color: var(--backgroundprimario);
@@ -140,6 +165,16 @@ a{
     font-size: 1.5rem;
     text-align: center;
 }
+/*Estos dos liks name lo que hace es solo mostrar los iconos a la orrilla, y cuando se activa lo muestra todo completo */
+.sidebar .links_name{
+    opacity: 0;
+    pointer-events: none;
+}
+.sidebar.active .links_name{
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.5s ease;
+}
 .sidebar .profile_content{
     position: absolute;
     color: var(--blanco);
@@ -152,11 +187,22 @@ a{
     position: relative;
     padding: 1rem .6rem;
     height: 6rem;
-    background-color: var(--backgroundsecundario);
+    background-color: none;/*Esto hace que el background del log out no sea 100% si no mas bien como una caja pequena*/
+    transition: all 0.4s ease;
+}
+.sidebar.active .profile_content .profile{
+    background: var(--backgroundsecundario);
 }
 .profile_content .profile .profile_details{
     display: flex;
     align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+}
+.sidebar.active .profile .profile_details{
+    opacity: 1;
+    pointer-events: auto;
 }
 .profile .profile_details img{
     /**Esta es la parte de la imagen de perfil**/
@@ -177,25 +223,43 @@ a{
 .profile .profile_details .job{
     font-size: 1.2rem;
 }
+/*Centro el boton de abajo que es para log out*/
 .profile #log_out{
     position: absolute;
-    left: 88%;
     bottom: .5rem;
+    left: 50%;
     transform: translateX(-50%);
     min-width: 5rem;
     line-height: 5rem;
     font-size: 2rem;
     border-radius: 1.2rem;
+    text-align: center;
+    background: var(--backgroundsecundario);
+}
+.sidebar.active .profile #log_out{
+    left: 88%;
+}
+.sidebar.active .profile #log_out{
+    background: none;
 }
 .home_content{
     position: absolute;
     height: 100%;
-    width: calc(100% - 240px);
-    left: 24rem;
+    width: calc(100% - 7.8rem);
+    left: 7.8rem;
+    transition: all 0.5s ease;
+
 }
 .home_content .text{
     font-size:2.5rem;
     font-weight: 500;
     color: var(--backgroundsecundario);
     margin: 1.2rem;
+    opacity: 1;
+}
+/*En esta parte cuando el boton se activa reaciona en el elemento hermano*/
+.sidebar.active ~ .home_content{
+    width: calc(100% - 240px);
+    left: 24rem;
+    display: none;
 }
