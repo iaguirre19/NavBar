@@ -81,7 +81,7 @@ a{
     transform: translateX(-50%);
 }
 .sidebar.active #btn{
-    left: 90%; /*Esto coloca el icono de hamburguesa a la derecha pegado al borde cuando se activa el boton */
+    left: 92%; /*Esto coloca el icono de hamburguesa a la derecha pegado al borde cuando se activa el boton */
 }
 .sidebar ul{
     margin-top: 2rem;
@@ -237,7 +237,7 @@ a{
     background: var(--backgroundsecundario);
 }
 .sidebar.active .profile #log_out{
-    left: 88%;
+    left: 92%;
 }
 .sidebar.active .profile #log_out{
     background: none;
